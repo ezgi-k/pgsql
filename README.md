@@ -152,9 +152,57 @@ eklendi
 
 *Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.*
 
-
+first
+`UPDATE employee
+SET name = 'ezgi',
+birthday ='2009-11-09'
+WHERE id = 4 
+RETURNING*;`
+second
+`UPDATE employee
+SET id = 99,
+birthday ='2009-11-09'
+WHERE name = 'ezgi' 
+RETURNING*;`
+third
+`UPDATE employee
+SET name = 'xxx',
+id= 95
+WHERE birthday = '2009-11-09' 
+RETURNING*; `
+fourth
+`UPDATE employee
+SET name = 'xxx'
+WHERE id <10 
+RETURNING*;`
+fifth
+`UPDATE employee
+SET id = 1
+WHERE name LIKE '%a' 
+RETURNING*;`
 
 *Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.*
+
+first
+`DELETE FROM employee
+WHERE name LIKE '%a' 
+RETURNING*;`
+second
+`DELETE FROM employee
+WHERE id = 1 
+RETURNING*;`
+third
+`DELETE FROM employee
+WHERE birthday = '2009-11-09'
+RETURNING*;`
+fourth
+`DELETE FROM employee
+WHERE name ILIKE '____'
+RETURNING*;`
+fifth
+`DELETE FROM employee
+WHERE id>45
+RETURNING*;`
 
 
 

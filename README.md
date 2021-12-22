@@ -141,7 +141,6 @@ LIMIT 4;
 `SELECT country_id, COUNT(*) FROM city GROUP BY country_id ORDER BY COUNT(*) DESC LIMIT 1;`
 
 ## *ödev8*
-
 *test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.*
 
 `CREATE TABLE employee (id INTEGER, name VARCHAR(50), birthday DATE, email VARCHAR(100));`
@@ -217,4 +216,16 @@ RETURNING*;`
 
 `SELECT rental_id, first_name,last_name FROM rental JOIN customer ON customer.customer_id = rental.customer_id;`
 
+## *ödev10*
+*city tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz LEFT JOIN sorgusunu yazınız.*
+
+`SELECT city, country FROM country LEFT JOIN city ON city.country_id = country.country_id;`
+
+*customer tablosu ile payment tablosunda bulunan payment_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz RIGHT JOIN sorgusunu yazınız.*
+
+`SELECT  first_name , last_name , payment_id FROM payment RIGHT JOIN customer ON customer.customer_id = payment.customer_id;`
+
+*customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz FULL JOIN sorgusunu yazınız.*
+
+`SELECT rental_id, first_name , last_name FROM rental FULL JOIN customer ON customer.customer_id = rental.customer_id;`
 
